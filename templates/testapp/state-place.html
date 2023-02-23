@@ -1,0 +1,45 @@
+{% extends 'testapp/base_test.html' %}
+{% block content %}
+<!-- Search Section -->
+<br>
+<br>
+<br>
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-md-8 offset-2">
+			<form class="" method="GET">
+				<div class="input-group">
+					<input type="text" name="place" class="form-control" placeholder="Search">
+				<div class="input-group-append">
+							<button class="btn btn-outline-secondary" type="submit">Search</button>
+				</div>
+				 </div>
+			</form>
+	</div>
+</div>
+</div>
+
+<main class="container mt-3 mb-5">
+	<h3 class="border-bottom pb-1 my-4">{{category.title}}</h3>
+    <!-- News Box -->
+    {% for news in all_news %}
+	<div class="card mb-4 shadow">
+	  <div class="row no-gutters">
+	    <div class="col-md-3">
+            <img src="{{news.image.url}}" class="card-img-top" alt="{{news.title}}" height="250px">
+	    </div>
+	    <div class="col-md-8">
+	      <div class="card-body">
+	        <h5 class="card-title">{{news.title}}</h5>
+	        <p class="card-text">{{news.detail|truncatewords:40}}</p>/accounts/login/
+					<p class="alert alert-primary"><a  href="/payment" class="btn btn-sm btn-primary">Book Now </a> At  Price {{news.price}} Rs Only.</p>
+
+					<!-- <p class="alert alert-primary"><a  href="/payment" class="btn btn-sm btn-primary">Book Now </a> At  Price {{news.price}} Rs Only.</p> -->
+					<p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+	      </div>
+	    </div>
+	  </div>
+    </div>
+    {% endfor %}
+</main>
+{% endblock %}

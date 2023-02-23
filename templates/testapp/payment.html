@@ -1,0 +1,20 @@
+{% extends 'testapp/base_test.html' %}
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+<h2>Signup to enjoy Services</h2>
+<form  method="post">
+  {{form.as_p}}
+  {% csrf_token %}
+  <input type="submit" name="" value="SignUp" class="btn btn-lg btn-success">
+</form>
+
+</div>
+{% endblock %}

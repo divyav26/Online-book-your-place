@@ -1,0 +1,30 @@
+{% extends 'testapp/base_test.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+<div class="form-group">
+    <div class="container">
+    <h3>Contact With Us!!</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-primary mb-5">
+
+    </form>
+</div>
+</div>
+</div>
+
+{% if messages%}
+{% for message in messages%}
+{{message}}
+{% endfor%}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'testapp/base_test.html' %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+        <div class="box-1 bg-light user">
+          <div class="card mb-3">
+                    <img src="{{news.image.url}}" class="card-img-top" alt="{{news.title}}">
+    			  <div class="card-body">
+    			    <h5 class="card-title">{{news.title}}</h5>
+    			    <hr/>
+    			    <p class="card-text">{{news.detail}}</p>
+    			  </div>
+    			  <div class="card-footer">
+    			  	In <a href="/category/{{news.category.id}}">{{news.category.title}}</a>
+    					<p class="alert alert-primary"><a  href="/detail/{{news.id}}" class="btn btn-sm btn-primary">Book Now </a> At  Price {{news.price}} Rs Only.</p>
+
+    			  </div>
+    			</div>
+          </div>
+        </div>
+      <div class="col-md-6">
+        <div class="box-2">
+            <div class="box-inner-2">
+                <div>
+                    <p class="fw-bold">Payment Details</p>
+                    <p class="dis mb-3">Complete your purchase by providing your payment details</p>
+                </div>
+                <form action="" method="post">
+                  {% csrf_token %}
+                    <div class="mb-3">
+
+                        <p class="dis fw-bold mb-2">Mobile No</p> <input class="form-control"  type="text" placeholder="Mobile No" name="username" required>
+                    </div>
+                    <div>
+                        <p class="dis fw-bold mb-2">Card details</p>
+                        <div class="d-flex align-items-center justify-content-between card-atm border rounded">
+                            <div class="fab fa-cc-visa ps-3"></div> <input type="text" class="form-control" placeholder="Card Details" required>
+                            <div class="d-flex w-50"> <input type="text" class="form-control px-0" placeholder="MM/YY"> <input type="password" maxlength=3 class="form-control px-0" placeholder="CVV" required> </div>
+                        </div>
+                        <div class="my-3 cardname">
+                            <p class="dis fw-bold mb-2">Cardholder name</p> <input class="form-control" type="text" name="user" required>
+                        </div>
+                        <div class="address">
+                            <div class="d-flex flex-column dis">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+
+                                    <p class="fw-bold"><span class="fas fa-dollar-sign"></span></p>
+                                </div>
+                                <div class="btn btn-primary mt-2"> <input type="submit" name="" value="Pay"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+
+
+<br>
+<br>
+<br>
+{% endblock %}
